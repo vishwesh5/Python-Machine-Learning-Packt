@@ -247,7 +247,7 @@ class AdalineSGD(object):
         # If n_samples > 1
         if y.ravel().shape[0] > 1:
             for xi,target in zip(X,y):
-                self._update_weights(X,y)
+                self._update_weights(xi,target)
         else:
             self._update_weights(X,y)
         return self

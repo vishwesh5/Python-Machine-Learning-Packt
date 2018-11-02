@@ -116,3 +116,41 @@ plt.plot(range(1,len(ada.cost_)+1),
 plt.xlabel('Epochs')
 plt.ylabel('Sum-Squared-Error')
 plt.show()
+
+# Adaline SGD
+# Use standardization
+ada = AdalineSGD(n_iter=15, eta=0.01, random_state=1)
+ada.fit(X_std,y)
+
+plot_decision_regions(X_std,y,classifier=ada)
+plt.title('Adaline - Stochaistic Gradient Descent')
+plt.xlabel('sepal length [standardized]')
+plt.ylabel('petal length [standardized]')
+plt.legend(loc = 'upper left')
+plt.tight_layout()
+plt.show()
+
+plt.plot(range(1,len(ada.cost_)+1),
+        ada.cost_, marker='o')
+plt.xlabel('Epochs')
+plt.ylabel('Average Cost')
+plt.show()
+
+# Adaline SGD
+# Do NOT use standardization
+ada = AdalineSGD(n_iter=15, eta=0.01, random_state=1)
+ada.fit(X,y)
+
+plot_decision_regions(X,y,classifier=ada)
+plt.title('Adaline - Stochaistic Gradient Descent')
+plt.xlabel('sepal length [cm]')
+plt.ylabel('petal length [cm]')
+plt.legend(loc = 'upper left')
+plt.tight_layout()
+plt.show()
+
+plt.plot(range(1,len(ada.cost_)+1),
+        ada.cost_, marker='o')
+plt.xlabel('Epochs')
+plt.ylabel('Average Cost')
+plt.show()
